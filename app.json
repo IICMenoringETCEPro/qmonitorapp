@@ -1,0 +1,12 @@
+{
+  "name": "qmonitor",
+  "displayName": "qmonitor",
+  "expo": {
+    "name": "qmonitor",
+    "slug": "qmonitor",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
