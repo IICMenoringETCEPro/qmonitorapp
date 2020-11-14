@@ -4,7 +4,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import {
     LoginScreen,
-    SignupScreen
+    SignupScreen,
+    OnboardingScreen
 } from '../src/screens';
 
 
@@ -18,6 +19,17 @@ export default function Application() {
         <NavigationContainer>
 
             <Stack.Navigator initialRouteName="InitialLogin">
+
+                <Stack.Screen
+                    name="Onboarding"
+                    component={OnboardingScreen}
+                    options={
+                        {
+                            title: 'Onboarding',
+                            headerShown: false
+                        }
+                    }
+                />
 
                 <Stack.Screen
                     name="Login"
