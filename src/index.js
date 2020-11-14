@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -12,13 +13,57 @@ import {
 const Stack = createStackNavigator();
 
 export default function Application() {
+    const [isFirstLaunch, setFirstLaunch] = useState(null);
+    let routeName;
+
+    const storeLaunchData = async (value) => {
+        try {
+            const jsonValue = JSON.stringify(value)
+            await AsyncStorage.setItem('alreadyLaunched', jsonValue)
+        } catch (e) {
+            // saving error
+        }
+    }
+
+    const getLaunchData = async () => {
+        try {
+            const jsonValue = await AsyncStorage.getItem('alreadyLaunched')
+            return jsonValue != null ? JSON.parse(jsonValue) : null;
+        } catch (e) {
+            // error reading value
+            console.log(e)
+        }
+    }
+
+    useEffect(() => {
+        const checkData = async () => {
+
+            const data = await getLaunchData();
+            if (data == null) {
+                await storeLaunchData(true);
+                setFirstLaunch(true);
+            } else {
+                setFirstLaunch(false);
+            }
+
+        }
+        checkData();
+    }, []);
+
+    if (isFirstLaunch == null) {
+        return null;
+    }
+    else if (isFirstLaunch == true) {
+        routeName = 'Onboarding';
+    } else {
+        routeName = 'Login';
+    }
 
 
     return (
 
         <NavigationContainer>
-
-            <Stack.Navigator initialRouteName="InitialLogin">
+            <Stack.Navigator initialRouteName={routeName}>
 
                 <Stack.Screen
                     name="Onboarding"
@@ -30,7 +75,6 @@ export default function Application() {
                         }
                     }
                 />
-
                 <Stack.Screen
                     name="Login"
                     component={LoginScreen}
