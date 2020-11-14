@@ -2,28 +2,37 @@ import { StyleSheet, Dimensions } from 'react-native';
 
 export default StyleSheet.create({
     container: {
-        flexDirection: "column",
-        height:Dimensions.get('window').height
-    },
-    registerFormContainer: {
-
-        flexDirection:"column",
-        marginLeft:15,
-        marginRight:15,
-        marginTop:50,
-        marginBottom:8
-
-    },
-    formElements:{
-        marginTop:6,
-        marginBottom:6
-    },
-    registerButton:{
-       marginTop:8,
-       justifyContent:"center",
-       flexDirection:"row"
-    },
-    registerText:{
-        fontSize:20
-    }
+        backgroundColor: '#f9fafd',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20,
+      },
+      text: {
+        fontFamily: 'Kufam-SemiBoldItalic',
+        fontSize: 28,
+        marginBottom: 10,
+        color: '#051d5f',
+      },
+      navButton: {
+        marginTop: 15,
+      },
+      navButtonText: {
+        fontSize: 18,
+        fontWeight: '500',
+        color: '#2e64e5',
+        fontFamily: 'Lato-Regular',
+      },
+      textPrivate: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        marginVertical: 35,
+        justifyContent: 'center',
+      },
+      color_textPrivate: {
+        fontSize: 13,
+        fontWeight: '400',
+        fontFamily: 'Lato-Regular',
+        color: 'grey',
+      },
 })

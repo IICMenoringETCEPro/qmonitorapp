@@ -1,65 +1,101 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-import { TextInput, Button } from 'react-native-paper';
+import React, { useContext, useState } from 'react';
+import {
+    View,
+    Text,
+    TouchableOpacity,
+    Image,
+    Platform,
+    StyleSheet,
+} from 'react-native';
+import FormInput from '../../components/FormInput';
+import FormButton from '../../components/FormButton';
+import SocialButton from '../../components/SocialButton';
 import styles from './styles';
 
 
-export default function SignupScreen ({ navigation }) {
-        return (
+export default function SignupScreen({ navigation }) {
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [confirmPassword, setConfirmPassword] = useState();
 
-            <View style={styles.container}>
+    return (
 
+        <View style={styles.container}>
+            <Text style={styles.text}>Create an account</Text>
 
-                <View style={styles.registerFormContainer}>
-                    <TextInput
-                        label="Name"
-                        value={null}
-                        mode='outlined'
-                        onChangeText={text => console.log(text)}
-                        style={styles.formElements}
-                    />
-                    <TextInput
-                        label="Phone No"
-                        value={null}
-                        mode='outlined'
-                        onChangeText={text => console.log(text)}
-                        style={styles.formElements}
-                    />
-                    <TextInput
-                        label="Email"
-                        value={null}
-                        mode='outlined'
-                        onChangeText={text => console.log(text)}
-                        style={styles.formElements}
-                    />
-                    <TextInput
-                        label="Password"
-                        value={null}
-                        mode='outlined'
-                        onChangeText={text => console.log(text)}
-                        style={styles.formElements}
-                    />
-                    <TextInput
-                        label="Confirm Password"
-                        value={null}
-                        mode='outlined'
-                        onChangeText={text => console.log(text)}
-                        style={styles.formElements}
-                    />
+            <FormInput
+                labelValue={email}
+                onChangeText={(userEmail) => setEmail(userEmail)}
+                placeholderText="Email"
+                iconType="user"
+                keyboardType="email-address"
+                autoCapitalize="none"
+                autoCorrect={false}
+            />
 
-                    <View style={styles.registerButton}>
-                        <Button
-                            icon={"login"}
-                            mode="contained"
-                            uppercase={false}
-                            onPress={() => console.log('Pressed')}>
-                            <Text style={styles.registerText}>Register</Text>
-                        </Button>
-                    </View>
-                </View>
+            <FormInput
+                labelValue={password}
+                onChangeText={(userPassword) => setPassword(userPassword)}
+                placeholderText="Password"
+                iconType="lock"
+                secureTextEntry={true}
+            />
+
+            <FormInput
+                labelValue={confirmPassword}
+                onChangeText={(userPassword) => setPassword(userPassword)}
+                placeholderText="Confirm Password"
+                iconType="lock"
+                secureTextEntry={true}
+            />
+
+            <FormButton
+                buttonTitle="Sign Up"
+                onPress={() => console.log('register pressed')}
+            />
+
+            <View style={styles.textPrivate}>
+                <Text style={styles.color_textPrivate}>
+                    By registering, you confirm that you accept our{' '}
+                </Text>
+                <TouchableOpacity onPress={() => alert('Terms Clicked!')}>
+                    <Text style={[styles.color_textPrivate, { color: '#e88832' }]}>
+                        Terms of service
+          </Text>
+                </TouchableOpacity>
+                <Text style={styles.color_textPrivate}> and </Text>
+                <Text style={[styles.color_textPrivate, { color: '#e88832' }]}>
+                    Privacy Policy
+        </Text>
             </View>
-        );
 
+            {Platform.OS === 'android' ? (
+                <View>
+                    <SocialButton
+                        buttonTitle="Sign Up with Facebook"
+                        btnType="facebook"
+                        color="#4867aa"
+                        backgroundColor="#e6eaf4"
+                        onPress={() => console.log('fblogin pressed')}
+                    />
+
+                    <SocialButton
+                        buttonTitle="Sign Up with Google"
+                        btnType="google"
+                        color="#de4d41"
+                        backgroundColor="#f5e7ea"
+                        onPress={() => console.log('googlelogin pressed')}
+                    />
+                </View>
+            ) : null}
+
+            <TouchableOpacity
+                style={styles.navButton}
+                onPress={() => navigation.navigate('Login')}>
+                <Text style={styles.navButtonText}>Have an account? Sign In</Text>
+            </TouchableOpacity>
+        </View>
+    );
 }
 
 
