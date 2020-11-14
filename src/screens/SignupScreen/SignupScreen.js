@@ -71,13 +71,13 @@ export default function SignupScreen({ navigation }) {
 
             {Platform.OS === 'android' ? (
                 <View>
-                    <SocialButton
+                    {/* <SocialButton
                         buttonTitle="Sign Up with Facebook"
                         btnType="facebook"
                         color="#4867aa"
                         backgroundColor="#e6eaf4"
                         onPress={() => console.log('fblogin pressed')}
-                    />
+                    /> */}
 
                     <SocialButton
                         buttonTitle="Sign Up with Google"

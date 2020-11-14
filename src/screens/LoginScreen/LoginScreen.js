@@ -58,13 +58,13 @@ export default function LoginScreen({ navigation }) {
 
             {Platform.OS === 'android' ? (
                 <View>
-                    <SocialButton
+                    {/* <SocialButton
                         buttonTitle="Sign In with Facebook"
                         btnType="facebook"
                         color="#4867aa"
                         backgroundColor="#e6eaf4"
                         onPress={() => console.log('fblogin pressed')}
-                    />
+                    /> */}
 
                     <SocialButton
                         buttonTitle="Sign In with Google"
