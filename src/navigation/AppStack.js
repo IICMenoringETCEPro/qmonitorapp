@@ -9,7 +9,8 @@ import {
   HomeScreen,
   ProfileScreen,
   WalletScreen,
-  GroupScreen
+  GroupScreen,
+  EditProfileScreen
 } from '../screens';
 
 
@@ -43,6 +44,23 @@ const FeedStack = ({navigation}) => (
             />
           </View>
         ),
+      }}
+    />
+    <Stack.Screen
+      name="ProfileEdit"
+      component={EditProfileScreen}
+      options={{
+        title: 'Edit Profile',
+        headerTitleAlign: 'center',
+        headerTitleStyle: {
+          color: '#2e64e5',
+          fontFamily: 'Kufam-SemiBoldItalic',
+          fontSize:18
+        },
+        headerStyle: {
+          shadowColor: '#fff',
+          elevation: 0,
+        }
       }}
     />
   </Stack.Navigator>
@@ -83,20 +101,6 @@ export default function AppStack(){
         }}
       />
       <Tab.Screen
-        name="Profile"
-        component={ProfileScreen}
-        options={{
-          tabBarLabel: 'Profile',
-          tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons
-              name="account-outline"
-              color={color}
-              size={size}
-            />
-          ),
-        }}
-      />
-      <Tab.Screen
         name="Wallet"
         component={WalletScreen}
         options={{
@@ -104,6 +108,20 @@ export default function AppStack(){
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons
               name="wallet-outline"
+              color={color}
+              size={size}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons
+              name="account-outline"
               color={color}
               size={size}
             />

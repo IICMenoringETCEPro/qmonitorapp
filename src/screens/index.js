@@ -6,3 +6,4 @@ export { default as ForgotPasswordScreen } from './ForgotPasswordScreen/ForgotPa
 export { default as ProfileScreen } from './ProfileScreen/ProfileScreen';
 export { default as WalletScreen } from './WalletScreen/WalletScreen';
 export { default as GroupScreen } from './GroupScreen/GroupScreen';
+export { default as EditProfileScreen } from './EditProfileScreen/EditProfileScreen';
