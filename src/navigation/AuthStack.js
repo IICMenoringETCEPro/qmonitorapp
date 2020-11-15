@@ -11,7 +11,7 @@ import {
 
 const Stack = createStackNavigator();
 
-export const AuthStack = () =>  {
+export default function AuthStack()  {
     const [isFirstLaunch, setFirstLaunch] = useState(null);
     let routeName;
 

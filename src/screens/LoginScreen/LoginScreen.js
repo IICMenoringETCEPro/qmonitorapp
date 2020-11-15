@@ -11,6 +11,8 @@ import FormInput from '../../components/FormInput';
 import FormButton from '../../components/FormButton';
 import SocialButton from '../../components/SocialButton';
 
+import {AuthContext} from '../../navigation/AuthProvider';
+
 
 import styles from './styles';
 
@@ -19,6 +21,7 @@ export default function LoginScreen({ navigation }) {
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const {login} = useContext(AuthContext);
 
 
     return (
@@ -49,7 +52,7 @@ export default function LoginScreen({ navigation }) {
 
             <FormButton
                 buttonTitle="Sign In"
-                onPress={() => console.log('signin pressed')}
+                onPress={() => login(email,password)}
             />
 
             <TouchableOpacity style={styles.forgotButton} onPress={() => console.log('forgot password pressed')}>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useContext} from 'react';
 import {
     View,
     Text
@@ -8,14 +8,23 @@ import {
 
 import styles from './styles';
 
+import FormButton from '../../components/FormButton';
+import {AuthContext} from '../../navigation/AuthProvider';
+
 
 export default function HomeScreen({ navigation }) {
+    const { logout } = useContext(AuthContext);
 
 
 
     return (
         <View style={styles.container}>
             <Text>This is HomeScreen</Text>
+
+            <FormButton
+                buttonTitle="Sign out"
+                onPress={() => logout()}
+            />
 
         </View>
     );
