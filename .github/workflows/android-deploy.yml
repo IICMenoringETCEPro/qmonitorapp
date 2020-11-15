@@ -1,0 +1,46 @@
+name: react-native-android-build-apk
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-android-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Install npm modules
+        run: npm install
+      - name: run Jetify
+        run: yarn jetify
+      - name: Build Android Bundle Release
+        run: |
+          ./gradlew bundleRelease
+        working-directory: android
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: app-release.aab
+          path: android/app/build/outputs/bundle/release/
+
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: android/app/build/outputs/bundle/release/
+
+      - name: Build Universal APK
+        uses: skywall/universal-apk-builder@v1.0.0
+        with:
+          aab_path: "android/app/build/outputs/bundle/release/app-release.aab"
+          output_dir: "android/app/build/outputs/apk/release"
+          keystore_path: "android/app/my-key.keystore"
+          keystore_password: ${{secrets.KEYSTORE_PASSWORD}}
+          keystore_alias: ${{secrets.KEYSTORE_ALIAS}}
+          keystore_alias_password: ${{secrets.KEYSTORE_PASSWORD}}
+
+      - name: upload artifact to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1.2.1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID }}
+          token: ${{ secrets.FIREBASE_TOKEN }}
+          groups: beta-testers
+          file: android/app/build/outputs/apk/release/universal.apk

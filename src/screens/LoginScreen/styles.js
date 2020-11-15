@@ -2,46 +2,33 @@ import { StyleSheet, Dimensions } from 'react-native';
 
 export default StyleSheet.create({
     container: {
-        flexDirection: "column",
-        height:Dimensions.get('window').height
-    },
-    loginFormContainer: {
-
-        flexDirection:"column",
-        marginLeft:15,
-        marginRight:15,
-        marginTop:5,
-        marginBottom:8
-
-    },
-    formElements:{
-        marginTop:6,
-        marginBottom:6
-    },
-    loginButton:{
-       marginTop:8,
-       justifyContent:"center",
-       flexDirection:"row"
-    },
-    loginText:{
-        fontSize:20
-    },
-    loginImage:{
-        height:Dimensions.get("window").height*(1.3/5),
-        width:Dimensions.get('window').width*(7.5/10),
-        alignSelf:"center",
-        marginTop:25,
-        marginBottom:10
-    },
-    signupContainer:{
-        flexDirection:"row",
-        marginTop:15
-    },
-    signUpText:{
-        marginLeft:9,
-        fontSize:18
-    },
-    dontHaveAnAcoountText:{
-        fontSize:18
-    }
+        backgroundColor: '#f9fafd',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20,
+      },
+      logo: {
+        height: 150,
+        width: 150,
+        resizeMode: 'cover',
+      },
+      text: {
+        fontFamily: 'Kufam-SemiBoldItalic',
+        fontSize: 28,
+        marginBottom: 10,
+        color: '#051d5f',
+      },
+      navButton: {
+        marginTop: 15,
+      },
+      forgotButton: {
+        marginVertical: 35,
+      },
+      navButtonText: {
+        fontSize: 18,
+        fontWeight: '500',
+        color: '#2e64e5',
+        fontFamily: 'Lato-Regular',
+      }
 })
