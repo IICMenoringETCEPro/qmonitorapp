@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "648846691194",
+    "firebase_url": "https://etcepro-iic.firebaseio.com",
+    "project_id": "etcepro-iic",
+    "storage_bucket": "etcepro-iic.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648846691194:android:6c277afa5c337d12af64c3",
+        "android_client_info": {
+          "package_name": "com.qmonitor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "648846691194-h6daljvjore7bq3afu5tedi5k7r61q8s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.qmonitor",
+            "certificate_hash": "2b23fa275b50c76bcef2c0c99415a4ed75879d52"
+          }
+        },
+        {
+          "client_id": "648846691194-bhd899fdjhs9ilu2avhffe89qff6j09m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy6sxsEliSpdHX3Hf8drk1UcHCZn9L8j4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "648846691194-bhd899fdjhs9ilu2avhffe89qff6j09m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

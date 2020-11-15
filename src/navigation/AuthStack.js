@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { GoogleSignin } from '@react-native-community/google-signin';
 
 import {
     LoginScreen,
     SignupScreen,
-    OnboardingScreen
-} from '../src/screens';
+    OnboardingScreen,
+    ForgotPasswordScreen
+} from '../screens';
 
 
 const Stack = createStackNavigator();
 
-export default function Application() {
+export default function AuthStack()  {
     const [isFirstLaunch, setFirstLaunch] = useState(null);
     let routeName;
 
@@ -48,6 +49,11 @@ export default function Application() {
 
         }
         checkData();
+        GoogleSignin.configure({
+            webClientId: '648846691194-bhd899fdjhs9ilu2avhffe89qff6j09m.apps.googleusercontent.com',
+            offlineAccess: true
+        });
+
     }, []);
 
     if (isFirstLaunch == null) {
@@ -62,7 +68,7 @@ export default function Application() {
 
     return (
 
-        <NavigationContainer>
+
             <Stack.Navigator initialRouteName={routeName}>
 
                 <Stack.Screen
@@ -85,8 +91,12 @@ export default function Application() {
                     component={SignupScreen}
                     options={{ title: 'Signup' }}
                 />
+                <Stack.Screen
+                    name="ForgotPassword"
+                    component={ForgotPasswordScreen}
+                    options={{ title: 'Reset Password' }}
+                />
 
             </Stack.Navigator>
-        </NavigationContainer>
     );
 }

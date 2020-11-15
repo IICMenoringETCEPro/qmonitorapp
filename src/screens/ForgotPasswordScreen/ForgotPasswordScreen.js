@@ -7,62 +7,57 @@ import {
     Platform,
     StyleSheet,
 } from 'react-native';
+import {AuthContext} from '../../navigation/AuthProvider';
 import FormInput from '../../components/FormInput';
 import FormButton from '../../components/FormButton';
 import SocialButton from '../../components/SocialButton';
-
-import {AuthContext} from '../../navigation/AuthProvider';
-
-
 import styles from './styles';
 
 
-export default function LoginScreen({ navigation }) {
-
+export default function ForgotPasswordScreen({ navigation }) {
     const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
-    const {login,googleLogin} = useContext(AuthContext);
-
+    const {resetPassword} = useContext(AuthContext);
 
     return (
+
         <View style={styles.container}>
-            <Image
-                source={require('../../../assets/images/rn-social-logo.png')}
-                style={styles.logo}
-            />
-            <Text style={styles.text}>QMonitor</Text>
+            <Text style={styles.text}>Rest your Password</Text>
 
             <FormInput
                 labelValue={email}
                 onChangeText={(userEmail) => setEmail(userEmail)}
-                placeholderText="Email"
+                placeholderText="Enter your registered email"
                 iconType="user"
                 keyboardType="email-address"
                 autoCapitalize="none"
                 autoCorrect={false}
             />
 
-            <FormInput
-                labelValue={password}
-                onChangeText={(userPassword) => setPassword(userPassword)}
-                placeholderText="Password"
-                iconType="lock"
-                secureTextEntry={true}
-            />
 
             <FormButton
-                buttonTitle="Sign In"
-                onPress={() => login(email,password)}
+                buttonTitle="Reset Password"
+                onPress={() => resetPassword(email)}
             />
 
-            <TouchableOpacity style={styles.forgotButton} onPress={() => navigation.navigate('ForgotPassword')}>
-                <Text style={styles.navButtonText}>Forgot Password?</Text>
-            </TouchableOpacity>
+            <View style={styles.textPrivate}>
+                <Text style={styles.color_textPrivate}>
+                    By registering, you confirm that you accept our{' '}
+                </Text>
+                <TouchableOpacity onPress={() => alert('Terms Clicked!')}>
+                    <Text style={[styles.color_textPrivate, { color: '#e88832' }]}>
+                        Terms of service
+          </Text>
+                </TouchableOpacity>
+                <Text style={styles.color_textPrivate}> and </Text>
+                <Text style={[styles.color_textPrivate, { color: '#e88832' }]}>
+                    Privacy Policy
+        </Text>
+            </View>
 
             {Platform.OS === 'android' ? (
                 <View>
                     {/* <SocialButton
-                        buttonTitle="Sign In with Facebook"
+                        buttonTitle="Sign Up with Facebook"
                         btnType="facebook"
                         color="#4867aa"
                         backgroundColor="#e6eaf4"
@@ -70,25 +65,22 @@ export default function LoginScreen({ navigation }) {
                     /> */}
 
                     <SocialButton
-                        buttonTitle="Sign In with Google"
+                        buttonTitle="Sign Up with Google"
                         btnType="google"
                         color="#de4d41"
                         backgroundColor="#f5e7ea"
-                        onPress={() => googleLogin()}
+                        onPress={() => console.log('googlelogin pressed')}
                     />
                 </View>
             ) : null}
 
             <TouchableOpacity
-                style={styles.forgotButton}
-                onPress={() => navigation.navigate('Signup')}>
-                <Text style={styles.navButtonText}>
-                    Don't have an acount? Create here
-        </Text>
+                style={styles.navButton}
+                onPress={() => navigation.navigate('Login')}>
+                <Text style={styles.navButtonText}>Have an account? Sign In</Text>
             </TouchableOpacity>
         </View>
     );
-
-
-
 }
+
+
