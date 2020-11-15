@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import {
     LoginScreen,
     SignupScreen,
     OnboardingScreen
-} from '../src/screens';
+} from '../screens';
 
 
 const Stack = createStackNavigator();
 
-export default function Application() {
+export const AuthStack = () =>  {
     const [isFirstLaunch, setFirstLaunch] = useState(null);
     let routeName;
 
@@ -62,7 +61,7 @@ export default function Application() {
 
     return (
 
-        <NavigationContainer>
+
             <Stack.Navigator initialRouteName={routeName}>
 
                 <Stack.Screen
@@ -87,6 +86,5 @@ export default function Application() {
                 />
 
             </Stack.Navigator>
-        </NavigationContainer>
     );
 }

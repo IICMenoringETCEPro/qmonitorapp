@@ -7,6 +7,7 @@ import {
     Platform,
     StyleSheet,
 } from 'react-native';
+import {AuthContext} from '../../navigation/AuthProvider';
 import FormInput from '../../components/FormInput';
 import FormButton from '../../components/FormButton';
 import SocialButton from '../../components/SocialButton';
@@ -17,6 +18,7 @@ export default function SignupScreen({ navigation }) {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [confirmPassword, setConfirmPassword] = useState();
+    const {register} = useContext(AuthContext);
 
     return (
 
@@ -43,7 +45,7 @@ export default function SignupScreen({ navigation }) {
 
             <FormInput
                 labelValue={confirmPassword}
-                onChangeText={(userPassword) => setPassword(userPassword)}
+                onChangeText={(userPassword) => setConfirmPassword(userPassword)}
                 placeholderText="Confirm Password"
                 iconType="lock"
                 secureTextEntry={true}
@@ -51,7 +53,7 @@ export default function SignupScreen({ navigation }) {
 
             <FormButton
                 buttonTitle="Sign Up"
-                onPress={() => console.log('register pressed')}
+                onPress={() => register(email, password)}
             />
 
             <View style={styles.textPrivate}>

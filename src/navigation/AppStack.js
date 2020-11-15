@@ -44,7 +44,7 @@ const FeedStack = ({navigation}) => (
   </Stack.Navigator>
 );
 
-const AppStack = () => {
+export default function AppStack(){
   return (
     <Tab.Navigator
       tabBarOptions={{
@@ -68,5 +68,3 @@ const AppStack = () => {
     </Tab.Navigator>
   );
 }
-
-export default AppStack;
