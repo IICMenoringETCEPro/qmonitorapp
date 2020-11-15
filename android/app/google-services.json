@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "648846691194-h6daljvjore7bq3afu5tedi5k7r61q8s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.qmonitor",
+            "certificate_hash": "2b23fa275b50c76bcef2c0c99415a4ed75879d52"
+          }
+        },
+        {
           "client_id": "648846691194-bhd899fdjhs9ilu2avhffe89qff6j09m.apps.googleusercontent.com",
           "client_type": 3
         }

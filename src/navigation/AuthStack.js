@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createStackNavigator } from '@react-navigation/stack';
+import { GoogleSignin } from '@react-native-community/google-signin';
 
 import {
     LoginScreen,
@@ -48,6 +49,11 @@ export default function AuthStack()  {
 
         }
         checkData();
+        GoogleSignin.configure({
+            webClientId: '648846691194-bhd899fdjhs9ilu2avhffe89qff6j09m.apps.googleusercontent.com',
+            offlineAccess: true
+        });
+
     }, []);
 
     if (isFirstLaunch == null) {
