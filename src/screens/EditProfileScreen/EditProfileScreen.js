@@ -27,6 +27,7 @@ import FormButton from '../../components/FormButton';
 import {AuthContext} from '../../navigation/AuthProvider';
 
 import styles from './styles';
+import { images } from '../../utils/images';
 
 export default function EditProfileScreen({ navigation }) {
 
@@ -37,7 +38,7 @@ export default function EditProfileScreen({ navigation }) {
 
     const {user} = useContext(AuthContext);
 
-    const [image, setImage] = useState('https://avatars0.githubusercontent.com/u/74367493?s=400&u=48f4a912b9b3db9839ae8ff442b4089dc96549b8&v=4');
+    const [image, setImage] = useState(images.defaultProfile);
 
     useEffect(() => {
         const checkImageData = async () => {

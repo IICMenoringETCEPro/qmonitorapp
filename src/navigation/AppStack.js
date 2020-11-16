@@ -17,7 +17,7 @@ import {
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const FeedStack = ({navigation}) => (
+const HomeStack = ({navigation}) => (
   <Stack.Navigator>
     <Stack.Screen
       name="Home"
@@ -46,11 +46,23 @@ const FeedStack = ({navigation}) => (
         ),
       }}
     />
+  </Stack.Navigator>
+);
+
+const ProfileStack = ({navigation}) => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name="Profile"
+      component={ProfileScreen}
+      options={{
+        headerShown:false
+      }}
+    />
     <Stack.Screen
       name="ProfileEdit"
       component={EditProfileScreen}
       options={{
-        title: 'Edit Profile',
+        title:'Edit Profile',
         headerTitleAlign: 'center',
         headerTitleStyle: {
           color: '#2e64e5',
@@ -61,6 +73,31 @@ const FeedStack = ({navigation}) => (
           shadowColor: '#fff',
           elevation: 0,
         }
+      }}
+    />
+
+  </Stack.Navigator>
+);
+
+const GroupStack = ({navigation}) => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name="Group"
+      component={GroupScreen}
+      options={{
+        headerShown:false
+      }}
+    />
+  </Stack.Navigator>
+);
+
+const WalletStack = ({navigation}) => (
+  <Stack.Navigator>
+    <Stack.Screen
+      name="Wallet"
+      component={WalletScreen}
+      options={{
+        headerShown:false
       }}
     />
   </Stack.Navigator>
@@ -74,7 +111,7 @@ export default function AppStack(){
       }}>
       <Tab.Screen
         name="Home"
-        component={FeedStack}
+        component={HomeStack}
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({color, size}) => (
@@ -88,7 +125,7 @@ export default function AppStack(){
       />
       <Tab.Screen
         name="Group"
-        component={GroupScreen}
+        component={GroupStack}
         options={{
           tabBarLabel: 'Groups',
           tabBarIcon: ({color, size}) => (
@@ -102,7 +139,7 @@ export default function AppStack(){
       />
       <Tab.Screen
         name="Wallet"
-        component={WalletScreen}
+        component={WalletStack}
         options={{
           tabBarLabel: 'Wallet',
           tabBarIcon: ({color, size}) => (
@@ -116,7 +153,7 @@ export default function AppStack(){
       />
       <Tab.Screen
         name="Profile"
-        component={ProfileScreen}
+        component={ProfileStack}
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({color, size}) => (

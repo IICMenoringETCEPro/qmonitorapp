@@ -13,12 +13,12 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import styles from './styles';
 import { AuthContext } from '../../navigation/AuthProvider';
 import { color } from '../../utils/color';
+import { images } from '../../utils/images';
 
 
 export default function ProfileScreen({ navigation }) {
     const { logout, user } = useContext(AuthContext);
-    let defaultPic = 'https://avatars0.githubusercontent.com/u/74367493?s=400&u=48f4a912b9b3db9839ae8ff442b4089dc96549b8&v=4';
-    const [ photoUrl, setphotoUrl] = useState(defaultPic);
+    const [ photoUrl, setphotoUrl] = useState(images.defaultProfile);
 
     useEffect(() => {
         const checkImageData = async () => {
