@@ -11,7 +11,8 @@ import {
   WalletScreen,
   GroupScreen,
   EditProfileScreen,
-  ScanScreen
+  ScanScreen,
+  ShareCodeScreen
 } from '../screens';
 
 
@@ -94,6 +95,23 @@ const ProfileStack = ({ navigation }) => (
       component={EditProfileScreen}
       options={{
         title: 'Edit Profile',
+        headerTitleAlign: 'center',
+        headerTitleStyle: {
+          color: '#2e64e5',
+          fontFamily: 'Kufam-SemiBoldItalic',
+          fontSize: 18
+        },
+        headerStyle: {
+          shadowColor: '#fff',
+          elevation: 0,
+        }
+      }}
+    />
+    <Stack.Screen
+      name="ShareCode"
+      component={ShareCodeScreen}
+      options={{
+        title: 'Share your Code',
         headerTitleAlign: 'center',
         headerTitleStyle: {
           color: '#2e64e5',

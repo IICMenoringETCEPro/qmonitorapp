@@ -1,17 +1,30 @@
-import React, {createContext, useState} from 'react';
+import React, { createContext, useState,useContext } from 'react';
 import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
+
+import { AuthContext } from './AuthProvider';
 
 export const ProfileContext = createContext();
 
-export const ProfileProvider = ({children}) => {
+export const ProfileProvider = ({ children }) => {
+
+  const { user } = useContext(AuthContext);
 
 
   return (
     <ProfileContext.Provider
       value={{
-        getCurrentUserInfo: async (email, password) => {
+        storeCurrentDeviceInfo: async (deviceToken) => {
           try {
-            await auth().signInWithEmailAndPassword(email, password);
+
+            firestore()
+              .collection('users')
+              .doc(user.uid)
+              .set(
+                { deviceToken: deviceToken },
+                { merge: true }
+              )
+
           } catch (e) {
             console.log(e);
           }

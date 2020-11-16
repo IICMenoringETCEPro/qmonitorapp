@@ -1,7 +1,12 @@
 import React, {useContext, useState, useEffect} from 'react';
+import {
+  View
+} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
 import {AuthContext} from './AuthProvider';
+
+import { PushController } from '../service'
 
 import AuthStack from './AuthStack';
 import AppStack from './AppStack';
@@ -25,6 +30,7 @@ export default function Routes() {
   return (
     <NavigationContainer>
       {user ? <AppStack /> : <AuthStack />}
+      {user && <View><PushController/></View>}
     </NavigationContainer>
   );
 };

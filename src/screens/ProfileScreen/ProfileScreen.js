@@ -81,7 +81,7 @@ export default function ProfileScreen({ navigation }) {
             </View>
 
             <View style={styles.menuWrapper}>
-                <TouchableRipple onPress={() => { }}>
+                <TouchableRipple onPress={() => navigation.navigate('ShareCode')}>
                     <View style={styles.menuItem}>
                         <MaterialCommunityIcons name="share-outline" color={color.lightthemesecondary} size={25} />
                         <Text style={styles.menuItemText}>Share your code</Text>
