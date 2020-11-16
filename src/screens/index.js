@@ -8,3 +8,5 @@ export { default as WalletScreen } from './WalletScreen/WalletScreen';
 export { default as GroupScreen } from './GroupScreen/GroupScreen';
 export { default as EditProfileScreen } from './EditProfileScreen/EditProfileScreen';
 export { default as ScanScreen } from './ScanScreen/ScanScreen';
+export { default as ShareCodeScreen } from './ShareCodeScreen/ShareCodeScreen';
+export { default as SafetyMeasuresScreen } from './SafetyMeasuresScreen/SafetyMeasuresScreen';
