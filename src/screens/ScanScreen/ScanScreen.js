@@ -9,11 +9,8 @@ import Scanner from '../../components/Scanner';
 
 
 import styles from './styles';
-import {AuthContext} from '../../navigation/AuthProvider';
-
 
 export default function ScanScreen({ navigation }) {
-    const { logout } = useContext(AuthContext);
     const [isSocketRead, setIsSocketRead] = useState(false)
 
     const onCancel = () => {
