@@ -10,40 +10,25 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ProfileContext } from '../navigation/ProfileProvider';
 
 export default function PushController({ navigation }) {
-
-    const { storeCurrentDeviceInfo } = useContext(ProfileContext);
-
-    const [deviceToken, setdeviceToken] = useState()
-
-    const storeDeviceTokenData = async (value) => {
-        try {
-            const jsonValue = JSON.stringify(value)
-            await AsyncStorage.setItem('DeviceToken', jsonValue)
-        } catch (e) {
-            // saving error
-        }
-    }
-
-    const getDeviceTokenData = async () => {
-        try {
-            const jsonValue = await AsyncStorage.getItem('DeviceToken')
-            return jsonValue != null ? JSON.parse(jsonValue) : null;
-        } catch (e) {
-            // error reading value
-            console.log(e)
-        }
-    }
+    const { storeCurrentDeviceInfo, getCurrentDeviceInfo, deviceToken } = useContext(ProfileContext);
 
     useEffect(() => {
 
+        getCurrentDeviceInfo();
         PushNotification.configure({
 
             onRegister: function (token) {
-                console.log("TOKEN:", token);
-                storeCurrentDeviceInfo(token).then(()=>{
-                    console.log('data saved to db')
 
-                })
+                console.log("CURRENT TOKEN: ", token);
+                if (deviceToken != token.token) {
+                    storeCurrentDeviceInfo(token).then(() => {
+                        console.log('data saved to db')
+
+                    })
+
+                } else {
+                    console.log('token already stored in db')
+                }
             },
             onNotification: function (notification) {
                 console.log("NOTIFICATION:", notification);
@@ -65,7 +50,6 @@ export default function PushController({ navigation }) {
             popInitialNotification: true,
             requestPermissions: true,
         });
-
     }, []);
 
 
