@@ -12,7 +12,8 @@ import {
   GroupScreen,
   EditProfileScreen,
   ScanScreen,
-  ShareCodeScreen
+  ShareCodeScreen,
+  SafetyMeasuresScreen
 } from '../screens';
 
 
@@ -66,6 +67,23 @@ const HomeStack = ({ navigation }) => (
       component={ScanScreen}
       options={{
         title: 'Scan Code',
+        headerTitleAlign: 'center',
+        headerTitleStyle: {
+          color: '#2e64e5',
+          fontFamily: 'Kufam-SemiBoldItalic',
+          fontSize: 18
+        },
+        headerStyle: {
+          shadowColor: '#fff',
+          elevation: 0,
+        }
+      }}
+    />
+    <Stack.Screen
+      name="SafetyMeasures"
+      component={SafetyMeasuresScreen}
+      options={{
+        title: 'Be healty, stay Safe',
         headerTitleAlign: 'center',
         headerTitleStyle: {
           color: '#2e64e5',
