@@ -13,7 +13,8 @@ import {
   EditProfileScreen,
   ScanScreen,
   ShareCodeScreen,
-  SafetyMeasuresScreen
+  SafetyMeasuresScreen,
+  DetailsScreen
 } from '../screens';
 
 
@@ -84,6 +85,23 @@ const HomeStack = ({ navigation }) => (
       component={SafetyMeasuresScreen}
       options={{
         title: 'Be healty, stay Safe',
+        headerTitleAlign: 'center',
+        headerTitleStyle: {
+          color: '#2e64e5',
+          fontFamily: 'Kufam-SemiBoldItalic',
+          fontSize: 18
+        },
+        headerStyle: {
+          shadowColor: '#fff',
+          elevation: 0,
+        }
+      }}
+    />
+    <Stack.Screen
+      name="Details"
+      component={DetailsScreen}
+      options={{
+        title: 'Some Infographics',
         headerTitleAlign: 'center',
         headerTitleStyle: {
           color: '#2e64e5',
