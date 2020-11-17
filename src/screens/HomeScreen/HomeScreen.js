@@ -83,9 +83,14 @@ export default function HomeScreen({ navigation }) {
                     <Block justifyContent="space-between" direction="row">
                         <Block>
                             <TextView h6>Case Update</TextView>
-                            <TextView>Newest update { moment().format("MMM Do YY") }</TextView>
+                            <TextView>Newest update {moment().format("MMM Do YY")}</TextView>
                         </Block>
-                        <Button textColor={color.blue1}>See details</Button>
+                        <Button
+                            textColor={color.blue1}
+                            onPress={() => navigation.navigate('Details')}
+                        >
+                            See details
+                        </Button>
                     </Block>
                     <Block
                         color="#fff"
