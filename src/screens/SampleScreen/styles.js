@@ -4,11 +4,8 @@ export default StyleSheet.create({
     container: {
         backgroundColor: '#f9fafd',
         flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
         padding: 20,
-      },
-      map: {
-        borderRadius: 0,
-        marginTop: 5,
-        padding: 15,
-      },
+      }
 })

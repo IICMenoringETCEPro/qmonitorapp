@@ -14,7 +14,8 @@ import {
   ScanScreen,
   ShareCodeScreen,
   SafetyMeasuresScreen,
-  DetailsScreen
+  DetailsScreen,
+  SampleScreen
 } from '../screens';
 
 
@@ -102,6 +103,23 @@ const HomeStack = ({ navigation }) => (
       component={DetailsScreen}
       options={{
         title: 'Some Infographics',
+        headerTitleAlign: 'center',
+        headerTitleStyle: {
+          color: '#2e64e5',
+          fontFamily: 'Kufam-SemiBoldItalic',
+          fontSize: 18
+        },
+        headerStyle: {
+          shadowColor: '#fff',
+          elevation: 0,
+        }
+      }}
+    />
+    <Stack.Screen
+      name="SampleScreen"
+      component={SampleScreen}
+      options={{
+        title: 'This is a sample screen',
         headerTitleAlign: 'center',
         headerTitleStyle: {
           color: '#2e64e5',
