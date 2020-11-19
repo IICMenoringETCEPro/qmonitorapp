@@ -1,14 +1,13 @@
-import { StyleSheet, Dimensions } from 'react-native';
+  
+import { StyleSheet } from 'react-native';
+/*import AppStyles from '../../config/styles';*/
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#f9fafd',
         flex: 1,
-        padding: 20,
-      },
-      map: {
-        borderRadius: 0,
-        marginTop: 5,
-        padding: 15,
-      },
-})
+        justifyContent: 'center',
+        backgroundColor: 'white'
+    }
+});
+
+export default styles;
