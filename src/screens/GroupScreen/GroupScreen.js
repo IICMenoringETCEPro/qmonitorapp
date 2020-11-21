@@ -1,4 +1,4 @@
-import React ,{useContext} from 'react';
+import React, { useContext } from 'react';
 import {
     View,
     Text
@@ -9,7 +9,7 @@ import {
 import styles from './styles';
 
 import FormButton from '../../components/FormButton';
-import {AuthContext} from '../../navigation/AuthProvider';
+import { AuthContext } from '../../navigation/AuthProvider';
 
 
 export default function GroupScreen({ navigation }) {
@@ -17,12 +17,14 @@ export default function GroupScreen({ navigation }) {
 
 
 
-    return (
-        <View style={styles.container}>
-            <Text>This is GroupScreen</Text>
+    return ( <
+        View style = { styles.container } >
+        <
+        Text > This is GroupScreen < /Text>
 
 
-        </View>
+        <
+        /View>
     );
 
 
