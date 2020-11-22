@@ -11,3 +11,4 @@ export { default as ScanScreen } from './ScanScreen/ScanScreen';
 export { default as ShareCodeScreen } from './ShareCodeScreen/ShareCodeScreen';
 export { default as SafetyMeasuresScreen } from './SafetyMeasuresScreen/SafetyMeasuresScreen';
 export { default as DetailsScreen } from './DetailsScreen/DetailsScreen';
+export { default as ChatScreen } from './ChatScreen/ChatScreen'
