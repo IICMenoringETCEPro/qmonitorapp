@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
-import Metrics from 'src/config/metrics';
-import AppStyles from 'src/config/styles';
-import { isIphoneX } from 'src/lib/isIphoneX';
+import Metrics from '../../../config/metrics';
+import AppStyles from '../../../config/styles';
+import { isIphoneX } from '../../../lib/isIphoneX';
 
 const styles = StyleSheet.create({
     container: {

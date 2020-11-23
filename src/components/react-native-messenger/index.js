@@ -5,9 +5,9 @@ import {
     TouchableWithoutFeedback,
     Keyboard
 } from 'react-native';
-import Toolbar from './Toolbar';
+// import Toolbar from './Toolbar';
 import InputModule from './InputModule';
-import KeyboardSpacer from '../KeyboardSpacer';
+import KeyboardSpacer from './KeyboardSpacer';
 
 export default class Messenger extends Component {
     onBackPress = () => {
@@ -21,7 +21,7 @@ export default class Messenger extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <Toolbar onBackPress={this.onBackPress} />
+                {/* <Toolbar onBackPress={this.onBackPress} /> */}
                 <TouchableWithoutFeedback onPress={this.dismissKeyboard}>
                     <View style={{ flex: 1 }} />
                 </TouchableWithoutFeedback>

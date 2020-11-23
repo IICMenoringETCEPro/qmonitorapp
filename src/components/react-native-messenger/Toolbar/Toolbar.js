@@ -45,9 +45,9 @@ class Toolbar extends Component {
                     subtitle={'Active 32 minutes ago'}
                 />
 
-                <Appbar.Action icon="call" onPress={() => {}} />
+                {/* <Appbar.Action icon="call" onPress={() => {}} />
                 <Appbar.Action icon="videocam" onPress={() => {}} />
-                <Appbar.Action icon="error-outline" onPress={() => {}} />
+                <Appbar.Action icon="error-outline" onPress={() => {}} /> */}
             </Appbar.Header>
         );
     }

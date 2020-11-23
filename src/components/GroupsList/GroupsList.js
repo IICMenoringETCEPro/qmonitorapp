@@ -47,9 +47,12 @@ const data = [
 ];
 
 export default class GroupsList extends Component {
-    renderItem = ({ item }) => {
-        return <GroupsItem item={item} />;
+
+
+    renderItem = ({ item}) => {
+        return <GroupsItem item={item}/>;
     };
+
 
     render() {
         return (
