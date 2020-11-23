@@ -1,30 +1,23 @@
-import React ,{useContext} from 'react';
-import {
-    View,
-    Text
-} from 'react-native';
+import React, { Component } from 'react';
+import { View } from 'react-native';
 
-
-
+import GroupsList from '../../components/GroupsList';
 import styles from './styles';
-
 import FormButton from '../../components/FormButton';
-import {AuthContext} from '../../navigation/AuthProvider';
-
 
 export default function GroupScreen({ navigation }) {
-    const { logout } = useContext(AuthContext);
 
 
 
-    return (
-        <View style={styles.container}>
-            <Text>This is GroupScreen</Text>
+        return (
+            <View style={styles.container}>
+                <GroupsList />
+                <FormButton
+                buttonTitle="Chat with Friends"
+                onPress={() => navigation.navigate('Chat')}
+                />
 
-
-        </View>
-    );
-
-
+            </View>
+        );
 
 }

@@ -14,7 +14,8 @@ import {
   ScanScreen,
   ShareCodeScreen,
   SafetyMeasuresScreen,
-  DetailsScreen
+  DetailsScreen,
+  ChatScreen
 } from '../screens';
 
 
@@ -166,6 +167,7 @@ const ProfileStack = ({ navigation }) => (
 
 const GroupStack = ({ navigation }) => (
   <Stack.Navigator>
+
     <Stack.Screen
       name="Group"
       component={GroupScreen}
@@ -173,6 +175,15 @@ const GroupStack = ({ navigation }) => (
         headerShown: false
       }}
     />
+
+    <Stack.Screen
+      name="Chat"
+      component={ChatScreen}
+      options={{
+        headerShown: false
+      }}
+      />
+      
   </Stack.Navigator>
 );
 
